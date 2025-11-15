@@ -5,20 +5,20 @@
 class TangleCli < Formula
   desc "A CLI to configure/clear SyncWindows on ArgoCD projects."
   homepage "https://github.com/ivanklee86/tangle-cli"
-  version "0.0.14"
+  version "0.1.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ivanklee86/tangle/releases/download/v0.0.14/tangle_0.0.14_darwin_amd64.tar.gz"
-      sha256 "f369934e16fc3c65303d9835a29c58c7328c2373a757b1cef40dce6aa8e3723e"
+      url "https://github.com/ivanklee86/tangle/releases/download/v0.1.0/tangle_0.1.0_darwin_amd64.tar.gz"
+      sha256 "06a5d06e2f2615fcaecd059fd9741aa2626f6f41c47dab3ff9596d6c29592793"
 
       def install
         bin.install "tangle-cli"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ivanklee86/tangle/releases/download/v0.0.14/tangle_0.0.14_darwin_arm64.tar.gz"
-      sha256 "13114c6241b1cc3e233c294b49efe815996be5d1e901575bd3a4fa50c5102f39"
+      url "https://github.com/ivanklee86/tangle/releases/download/v0.1.0/tangle_0.1.0_darwin_arm64.tar.gz"
+      sha256 "0132d8dd8111fcb9b854d59a833c423672bc6f1046a696ce639d2f16df5b89db"
 
       def install
         bin.install "tangle-cli"
@@ -27,24 +27,18 @@ class TangleCli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/ivanklee86/tangle/releases/download/v0.0.14/tangle_0.0.14_linux_amd64.tar.gz"
-        sha256 "bcfe5114b038d4fe541c94ef343d16e63b076c5cf045e0e4ff5a26636b45d002"
-
-        def install
-          bin.install "tangle-cli"
-        end
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/ivanklee86/tangle/releases/download/v0.1.0/tangle_0.1.0_linux_amd64.tar.gz"
+      sha256 "83320d1c2f51458e49ab93b64d4194ea213abd4ac31f2b5455e7d1ed58754f6c"
+      def install
+        bin.install "tangle-cli"
       end
     end
-    if Hardware::CPU.arm?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/ivanklee86/tangle/releases/download/v0.0.14/tangle_0.0.14_linux_arm64.tar.gz"
-        sha256 "5bad6d09ae1c390a2044b8f60aef99e6e5e7c477933ab6cc468239e1d2f4ef4b"
-
-        def install
-          bin.install "tangle-cli"
-        end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/ivanklee86/tangle/releases/download/v0.1.0/tangle_0.1.0_linux_arm64.tar.gz"
+      sha256 "d36ead7d71cdeafeea684ab426a7a947f89e852b1134ea123fab49fb75c3df23"
+      def install
+        bin.install "tangle-cli"
       end
     end
   end
